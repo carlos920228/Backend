@@ -5,4 +5,8 @@ import java.util.List;
 public interface PersonasService {
 
 	Personas save(Personas persona);
+
+	List<Personas> findAll();
+
+
 }

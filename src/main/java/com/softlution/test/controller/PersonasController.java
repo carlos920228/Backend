@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.softlution.test.modelo.Personas;
 import com.softlution.test.service.PersonasService;
+import com.softlution.test.util.QueryResult;
 import com.softlution.test.util.Response;
 import java.io.IOException;
 import java.util.List;
@@ -42,4 +43,13 @@ private boolean validate(Personas persona) {
 	}
 	return isValid;
 }
+	
+/**
+ * Devuelve la lista de personas existentes en la base de datos
+ * @return
+ */
+	@RequestMapping(value="/getPerson", method=RequestMethod.GET)
+	public List<Personas> getPerson() {
+	return this.personasService.findAll();
+	}
 }

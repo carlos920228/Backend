@@ -1,5 +1,7 @@
 package com.softlution.test.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.softlution.test.dao.PersonasRepository;
@@ -13,6 +15,15 @@ public class PersonasServiceImpl implements PersonasService {
 	@Override
 	public Personas save(Personas persona) {
 		return this.personaRepository.save(persona);
+	}
+/**
+ * Devuelve la lista de las personas existentes en la base
+ * 
+ */
+	@Override
+	public List<Personas> findAll() {
+		
+		return this.personaRepository.findAll();
 	} 
 
 }
