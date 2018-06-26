@@ -17,7 +17,7 @@ import com.softlution.test.service.PersonasService;
 import com.softlution.test.util.Response;
 import java.io.IOException;
 import java.util.List;
-
+import org.apache.commons.lang3.StringUtils;
 @RestController
 public class PersonasController {
 
@@ -37,7 +37,7 @@ public class PersonasController {
 	
 private boolean validate(Personas persona) {
 	boolean isValid=false;
-	if(!persona.getName().isEmpty()) {
+	if(StringUtils.trimToNull(persona.getName())!=null) {
 		isValid=true;		
 	}
 	return isValid;
