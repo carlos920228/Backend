@@ -24,6 +24,14 @@ public class PersonasServiceImpl implements PersonasService {
 	public List<Personas> findAll() {
 		
 		return this.personaRepository.findAll();
-	} 
+	}
+/**
+ * Método que elimina una persona 
+ */
+@Override
+public void deletePerson(Long id) {
+	this.personaRepository.deleteById(id);
+	
+} 
 
 }

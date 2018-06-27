@@ -52,4 +52,14 @@ private boolean validate(Personas persona) {
 	public List<Personas> getPerson() {
 	return this.personasService.findAll();
 	}
-}
+	@RequestMapping(value="/deletePerson",method=RequestMethod.POST)
+	public void deletePerson(@RequestBody String personaJson) throws Exception {
+		this.mapper=new ObjectMapper();
+		Personas persona=this.mapper.readValue(personaJson, Personas.class);
+		if(persona.getId()==null) {
+			
+			 throw new Exception("Error, no trae identificador");
+		}
+		this.personasService.deletePerson(persona.getId());
+			}
+}												
